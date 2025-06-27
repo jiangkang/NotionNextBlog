@@ -18,8 +18,9 @@ const BLOG = {
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://jiangkang.tech', // 网站地址
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || '姜康, 姜康的技术博客, Android, Flutter, ', // 网站关键词 英文逗号隔开
   BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.ico', // blog favicon 配置, 默认使用 /public/favicon.ico，支持在线图片，如 https://img.imesong.com/favicon.png
-  BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '鄂ICP备19012843号', // 备案号 闽ICP备XXXXXX
+    BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '沪ICP备2025118872号-1', // 备案号 闽ICP备XXXXXX
   BEI_AN_LINK: process.env.NEXT_PUBLIC_BEI_AN_LINK || 'https://beian.miit.gov.cn/', // 备案查询链接，如果用了萌备等备案请在这里填写
+  BEI_AN_GONGAN: process.env.NEXT_PUBLIC_BEI_AN_GONGAN || '沪公网安备31010502007353号', // 公安网备案号，例如：鄂公网安备 42018502000000号
 
   // 社交链接，不需要可留空白，例如 CONTACT_WEIBO:''
   CONTACT_EMAIL: process.env.NEXT_PUBLIC_CONTACT_EMAIL || '', // 邮箱地址 例如mail@tangly1024.com
