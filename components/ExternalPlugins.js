@@ -1,6 +1,6 @@
 import { siteConfig } from '@/lib/config'
 import { convertInnerUrl } from '@/lib/notion/convertInnerUrl'
-import { isBrowser } from '@/lib/utils'
+import { isBrowser, loadExternalResource } from '@/lib/utils'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
