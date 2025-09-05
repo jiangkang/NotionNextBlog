@@ -1,5 +1,4 @@
 import { siteConfig } from '@/lib/config'
-import { loadExternalResource } from '@/lib/utils'
 import { useEffect } from 'react'
 
 /**
@@ -61,13 +60,24 @@ function getNodesWithAdsByGoogleClass(node) {
  * @returns
  */
 export const initGoogleAdsense = ADSENSE_GOOGLE_ID => {
-  console.log('Load Adsense')
-  loadExternalResource(
-    `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_GOOGLE_ID}`,
-    'js'
-  ).then(url => {
+  console.log('Load Adsense', ADSENSE_GOOGLE_ID)
+  
+  // 检查是否已加载 AdSense 脚本
+  if (document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
+    console.log('AdSense script already loaded')
+    return
+  }
+  
+  // 创建 AdSense 脚本标签
+  const script = document.createElement('script')
+  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_GOOGLE_ID}`
+  script.async = true
+  script.crossOrigin = 'anonymous'
+  
+  script.onload = () => {
+    console.log('AdSense script loaded successfully')
+    // 页面加载完成后加载一次广告
     setTimeout(() => {
-      // 页面加载完成后加载一次广告
       const ads = document.querySelectorAll('ins.adsbygoogle')
       if (window.adsbygoogle && ads.length > 0) {
         requestAd(Array.from(ads))
@@ -102,7 +112,13 @@ export const initGoogleAdsense = ADSENSE_GOOGLE_ID => {
         observerConfig
       )
     }, 100)
-  })
+  }
+  
+  script.onerror = () => {
+    console.error('Failed to load AdSense script')
+  }
+  
+  document.head.appendChild(script)
 }
 
 /**

@@ -71,6 +71,12 @@ const SEO = props => {
     NOTION_CONFIG
   )
 
+  const ADSENSE_GOOGLE_ID = siteConfig(
+    'ADSENSE_GOOGLE_ID',
+    null,
+    NOTION_CONFIG
+  )
+
   const BLOG_FAVICON = siteConfig('BLOG_FAVICON', null, NOTION_CONFIG)
 
   const COMMENT_WEBMENTION_ENABLE = siteConfig(
@@ -113,6 +119,12 @@ const SEO = props => {
         <meta
           name='google-site-verification'
           content={SEO_GOOGLE_SITE_VERIFICATION}
+        />
+      )}
+      {ADSENSE_GOOGLE_ID && (
+        <meta
+          name='google-adsense-account'
+          content={ADSENSE_GOOGLE_ID}
         />
       )}
       {SEO_BAIDU_SITE_VERIFICATION && (
