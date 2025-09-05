@@ -135,6 +135,7 @@ const SEO = props => {
       )}
       <meta name='keywords' content={keywords} />
       <meta name='description' content={description} />
+      <meta name="google-adsense-account" content="ca-pub-7843569167299928"></meta>
       <meta property='og:locale' content={lang} />
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
